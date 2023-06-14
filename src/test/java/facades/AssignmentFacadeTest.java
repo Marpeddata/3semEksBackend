@@ -57,8 +57,6 @@ public class AssignmentFacadeTest {
 
             em.createNamedQuery("Assignment.deleteAllRows").executeUpdate();
 
-
-
             em.persist(u1);
             em.persist(a1);
 
