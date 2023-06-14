@@ -10,6 +10,7 @@ public class DinnerEventDTO {
     private long id;
     private String time;
     private String location;
+    private String dish;
     private int pricePrPerson;
     private List<Long> assignmentIds;
 
@@ -20,6 +21,7 @@ public class DinnerEventDTO {
         this.id = dinnerEvent.getId();
         this.time = dinnerEvent.getTime();
         this.location = dinnerEvent.getLocation();
+        this.dish = dinnerEvent.getDish();
         this.pricePrPerson = dinnerEvent.getPricePrPerson();
         if(dinnerEvent.getAssignments()!= null) {
             this.assignmentIds = dinnerEvent.getAssignments().stream().map(a -> a.getId()).collect(Collectors.toList());
@@ -41,6 +43,14 @@ public class DinnerEventDTO {
 
     public String getTime() {
         return time;
+    }
+
+    public String getDish() {
+        return dish;
+    }
+
+    public void setDish(String dish) {
+        this.dish = dish;
     }
 
     public void setTime(String time) {

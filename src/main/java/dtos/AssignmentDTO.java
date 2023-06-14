@@ -33,6 +33,8 @@ public class AssignmentDTO {
 
     }
 
+
+
     public static List<AssignmentDTO> getDTOs(List<Assignment> assignments) {
         return assignments.stream().map(a -> new AssignmentDTO(a)).collect(Collectors.toList());
     }

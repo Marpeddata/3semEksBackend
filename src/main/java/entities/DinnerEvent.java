@@ -74,6 +74,11 @@ public class DinnerEvent {
         this.assignments.add(assignment);
     }
 
+    public void removeAssignment(Assignment assignment) {
+        this.assignments.remove(assignment);
+        assignment.setDinnerEvent(null);
+    }
+
     @Override
     public String toString() {
         return "DinnerEvent{" +

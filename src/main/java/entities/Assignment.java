@@ -9,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "assignments")
+@NamedQuery(name = "Assignment.deleteAllRows", query = "DELETE from Assignment")
 public class Assignment {
     //Family
     @Id
@@ -28,8 +29,8 @@ public class Assignment {
 
     @ManyToMany
     @JoinTable(name = "assignments_users",
-            joinColumns = @JoinColumn(name = "assignment_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "assignment", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "user", referencedColumnName = "user_name"))
     private List<User> users = new ArrayList<>();
 
     @PrePersist
@@ -41,11 +42,11 @@ public class Assignment {
     public Assignment() {
     }
 
-    public Assignment(String familyName, LocalDateTime created, String contactInfo, List<User> users) {
+    public Assignment(String familyName, String contactInfo) {
         this.familyName = familyName;
-        this.created = created;
+
         this.contactInfo = contactInfo;
-        this.users = users;
+
     }
 
     public void setFamilyName(String familyName) {
@@ -79,6 +80,14 @@ public class Assignment {
 
     public DinnerEvent getDinnerEvent() {
         return dinnerEvent;
+    }
+    public void setDinnerEvent(DinnerEvent dinnerEvent) {
+        this.dinnerEvent = dinnerEvent;
+    }
+
+    public void removeDinnerEvent(DinnerEvent dinnerEvent) {
+        this.dinnerEvent = null;
+        dinnerEvent.removeAssignment(this);
     }
 
     public void removeUser(User user) {

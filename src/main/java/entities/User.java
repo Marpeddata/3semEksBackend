@@ -23,14 +23,12 @@ public class User implements Serializable {
   @Basic(optional = false)
   @NotNull
   @Column(name = "user_name", length = 25)
-  //Account
   private String userName;
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 255)
   @Column(name = "user_pass")
   private String userPass;
-
   @Column(name = "address")
   private String address;
   @Column(name = "phone")
@@ -41,7 +39,7 @@ public class User implements Serializable {
   private int birthYear;
 
   @ManyToMany
-  @JoinColumn(name = "user_assignments", referencedColumnName = "user_name")
+  @JoinColumn(name = "user_id", referencedColumnName = "id")
   private List<Assignment> assignmentList = new ArrayList<>();
 
 
