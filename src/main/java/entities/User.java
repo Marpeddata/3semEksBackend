@@ -104,9 +104,51 @@ public class User implements Serializable {
     roleList.add(userRole);
   }
 
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public int getBirthYear() {
+    return birthYear;
+  }
+
+  public void setBirthYear(int birthYear) {
+    this.birthYear = birthYear;
+  }
+
+  public List<Assignment> getAssignmentList() {
+    return assignmentList;
+  }
+
+  public void addAssignment(Assignment assignment) {
+    this.assignmentList.add(assignment);
+  }
+
   public void removeAssignment(Assignment assignment) {
     assignmentList.remove(assignment);
   }
+
+
 
 
 

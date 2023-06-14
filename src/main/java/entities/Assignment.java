@@ -86,6 +86,15 @@ public class Assignment {
         user.removeAssignment(this);
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void addUsers(User user) {
+        this.users.add(user);
+        user.addAssignment(this);
+    }
+
     @Override
     public String toString() {
         return "Assignment{" +
