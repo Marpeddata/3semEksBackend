@@ -1,6 +1,7 @@
 package facades;
 
 import dtos.AssignmentDTO;
+import dtos.UserDTO;
 import entities.Assignment;
 import entities.User;
 
@@ -24,41 +25,23 @@ public class AssignmentFacade {
         return instance;
     }
 
-    public AssignmentDTO createAssignment(AssignmentDTO assignment){
+    public AssignmentDTO createAssignment(AssignmentDTO assignmentdto){
         EntityManager em = emf.createEntityManager();
-        Assignment assignement = new Assignment(assignment.getFamilyName(), assignment.getContactInfo());
-
-        try {
-            em.getTransaction().begin();
-            em.persist(assignement);
-            em.getTransaction().commit();
-        }
-        finally {
-            em.close();
-        }
-         return new AssignmentDTO(assignement);
-    }
-
-
-
-    public void addUserToAssignment(int assignmentId, List<Integer> userId){
-
-        EntityManager em = emf.createEntityManager();
-        Assignment assignment = em.find(Assignment.class, assignmentId);
-        for (int id: userId) {
-            User user = em.find(User.class, id);
+        Assignment assignment = new Assignment(assignmentdto.getFamilyName(), assignmentdto.getContactInfo());
+        for(UserDTO userdto : assignmentdto.getUserDTOList()){
+            User user = em.find(User.class, userdto.getUsername());
             assignment.addUsers(user);
         }
 
         try {
             em.getTransaction().begin();
-            em.merge(assignment);
+            em.persist(assignment);
             em.getTransaction().commit();
         }
         finally {
             em.close();
         }
-
+         return new AssignmentDTO(assignment);
     }
 
     public void removeUserFromAssignment(int assignmentId, int userId){

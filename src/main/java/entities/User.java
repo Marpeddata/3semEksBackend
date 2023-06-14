@@ -38,8 +38,7 @@ public class User implements Serializable {
   @Column(name = "birth_year")
   private int birthYear;
 
-  @ManyToMany
-  @JoinColumn(name = "user_id", referencedColumnName = "id")
+  @ManyToMany(mappedBy = "users")
   private List<Assignment> assignmentList = new ArrayList<>();
 
 
