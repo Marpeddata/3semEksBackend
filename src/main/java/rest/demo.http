@@ -1,0 +1,115 @@
+GET http://localhost:8080/recap/api/info
+
+###
+POST http://localhost:8080/recap/api/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "test123"
+}
+###
+GET http://localhost:8080/recap/api/info/admin
+x-access-token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiYWRtaW4iLCJleHAiOjE2ODEzMDAxNjgsImlhdCI6MTY4MTI5ODM2OCwiaXNzdWVyIjoic2VtZXN0ZXJzdGFydGNvZGUtZGF0MyIsInVzZXJuYW1lIjoiYWRtaW4ifQ.6QKKnCtWqucj6JUYCiesa10ce299f9AkZxyPYbXXbH8
+
+
+###
+// Get Kanye quote
+GET http://localhost:8080/backend/api/ext/kanye
+
+
+###
+
+POST http://localhost:8080/backend/api/ext/kanye/user
+Content-Type: application/json
+
+{
+  "quote": "I am dead"
+}
+
+###
+
+GET http://localhost:8080/backend/api/ext/age/israa
+
+###
+
+POST http://localhost:8080/backend/api/ext/age/admin
+Content-Type: application/json
+
+{
+    "age": 22
+}
+
+###
+
+DELETE http://localhost:8080/backend/api/ext/delete/user/10
+
+###
+
+POST http://localhost:8080/backend/api/ext/age/admin/22
+
+###
+
+GET http://localhost:8080/backend/api/ext
+
+
+###
+
+GET http://localhost:8080/carbon2count/api/produce/count
+
+###
+
+POST http://localhost:8080/carbon2count/api/grocerylist/create/user
+Content-Type: application/json
+
+
+{
+  "groceryLineDTOs": [
+    {
+      "groceryId": "Ra00070",
+      "groceryQuantity":15
+    },
+    {
+      "groceryId": "Ra00155",
+      "groceryQuantity": 30
+    }
+  ]
+}
+
+###
+
+GET http://localhost:8080/carbon2count/api/grocerylist/all/user
+
+###
+
+GET http://localhost:8080/carbon2count/api/chart
+
+###
+
+POST https://quickchart.io/chart
+Content-Type: application/json
+
+{
+  "backgroundColor": "transparent",
+  "width": 500,
+  "height": 300,
+  "format": "png",
+  "chart": "{type:'bar',data:{labels:['January','February','March','April','May'],datasets:[{label:'Dogs',data:[50,60,70,180,190]}]},options:{scales:{yAxes:[{ticks:{callback:function(value){return'$'+value;}}}]}}}"
+}
+
+###
+
+POST http://localhost:8080/carbon2count/api/chart
+Content-Type: application/json
+
+{
+  "backgroundColor": "transparent",
+  "width": 500,
+  "height": 300,
+  "format": "png",
+  "chart": "{type:'bar',data:{labels:['January','February','March','April','May'],datasets:[{label:'Dogs',data:[50,60,70,180,190]}]},options:{scales:{yAxes:[{ticks:{callback:function(value){return'$'+value;}}}]}}}"
+}
+
+###
+
+GET http://localhost:8080/carbon2count/api/chart/user
