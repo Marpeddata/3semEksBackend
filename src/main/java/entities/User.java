@@ -23,12 +23,27 @@ public class User implements Serializable {
   @Basic(optional = false)
   @NotNull
   @Column(name = "user_name", length = 25)
+  //Account
   private String userName;
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 255)
   @Column(name = "user_pass")
   private String userPass;
+
+  @Column(name = "address")
+  private String address;
+  @Column(name = "phone")
+  private String phone;
+  @Column(name = "email")
+  private String email;
+  @Column(name = "birth_year")
+  private int birthYear;
+
+  @ManyToMany
+  @JoinColumn(name = "user_assignments", referencedColumnName = "user_name")
+  private List<Assignment> assignmentList = new ArrayList<>();
+
 
   @JoinTable(name = "user_roles", joinColumns = {
     @JoinColumn(name = "user_name", referencedColumnName = "user_name")}, inverseJoinColumns = {
@@ -87,6 +102,10 @@ public class User implements Serializable {
 
   public void addRole(Role userRole) {
     roleList.add(userRole);
+  }
+
+  public void removeAssignment(Assignment assignment) {
+    assignmentList.remove(assignment);
   }
 
 
