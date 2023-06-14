@@ -49,7 +49,7 @@ public class AssignmentFacadeTest {
         EntityManager em = emf.createEntityManager();
 
         a1 = new Assignment("Perdersen", "test@test.dk");
-        u1 = new User("user", "test123");
+        u1 = new User("user2", "test123");
 
         try {
 
@@ -86,7 +86,7 @@ public class AssignmentFacadeTest {
     @Test
     public void createAssignment() {
 
-        UserDTO user = facade1.getUserByUsernameId("user");
+        UserDTO user = facade1.getUserByUsernameId("user2");
         List<UserDTO> userDTOList = new ArrayList<>();
         userDTOList.add(user);
         System.out.println(user);
