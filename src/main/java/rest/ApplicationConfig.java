@@ -35,6 +35,7 @@ public class ApplicationConfig extends Application {
         resources.add(rest.DinnerEventResource.class);
         resources.add(rest.AssignmentResource.class);
 
+
     }
     
 }
