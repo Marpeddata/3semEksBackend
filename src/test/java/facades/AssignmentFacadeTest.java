@@ -86,7 +86,6 @@ public class AssignmentFacadeTest {
     @Test
     public void createAssignment() {
 
-
         UserDTO user = facade1.getUserByUsernameId("user");
         List<UserDTO> userDTOList = new ArrayList<>();
         userDTOList.add(user);
